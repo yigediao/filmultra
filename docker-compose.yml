@@ -1,0 +1,45 @@
+services:
+  postgres:
+    image: postgres:16
+    environment:
+      POSTGRES_DB: photo_dam
+      POSTGRES_USER: photo_dam
+      POSTGRES_PASSWORD: photo_dam
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  redis:
+    image: redis:7
+    ports:
+      - "6379:6379"
+
+  backend:
+    build:
+      context: ./backend
+    environment:
+      DATABASE_URL: postgresql+psycopg://photo_dam:photo_dam@postgres:5432/photo_dam
+      PHOTO_LIBRARY_ROOT: /mnt/photo_library
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./backend:/app
+      - /mnt/photo_library:/mnt/photo_library:ro
+    depends_on:
+      - postgres
+
+  frontend:
+    build:
+      context: ./frontend
+    environment:
+      NEXT_PUBLIC_API_BASE: http://localhost:8000
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./frontend:/app
+    depends_on:
+      - backend
+
+volumes:
+  postgres_data:

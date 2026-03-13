@@ -1,0 +1,57 @@
+# Editor and OS
+.DS_Store
+.idea/
+.vscode/
+
+# Python
+__pycache__/
+*.py[cod]
+
+# Node / Next.js
+frontend/node_modules/
+frontend/.next/
+frontend/tsconfig.tsbuildinfo
+
+# Local env
+.env
+.env.*
+!.env.example
+!backend/.env.example
+!frontend/.env.local.example
+frontend/.env.local
+backend/.env
+
+# Runtime state
+var/**
+!var/
+!var/README.md
+!var/**/*.gitkeep
+
+# Local mounts and sample mirrors
+.gvfs_mounts/
+.smb_stage/
+2026-3-7/
+artifacts/
+checkpoints/
+
+# Backend runtime outputs
+backend/*.db
+backend/*.log
+backend/preview_cache*/
+backend/model_cache/
+backend/model_cache_synology_smb_test/
+backend/artifacts/
+
+# Frontend runtime outputs
+frontend/npm-debug.log*
+
+# Third-party transient outputs
+third_party/**/checkpoints/
+third_party/**/SAM_2.egg-info/
+third_party/**/*.egg-info/
+
+# General logs and temp files
+*.log
+*.pid
+*.tmp
+*.swp
