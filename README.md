@@ -134,3 +134,7 @@ and the smoke-test entry points.
 - Job execution is still in-process rather than using a dedicated worker queue
 - 3D reconstruction features depend on locally installed research dependencies and checkpoints
 - UI copy is currently Chinese-first even though the codebase is intended for broader reuse
+
+## License
+
+This project is licensed under the Apache License 2.0. See [LICENSE](LICENSE).
