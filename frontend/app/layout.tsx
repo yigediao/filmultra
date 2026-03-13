@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { IBM_Plex_Sans, Space_Grotesk } from "next/font/google";
 
@@ -21,6 +22,10 @@ const spaceGrotesk = Space_Grotesk({
 export const metadata: Metadata = {
   title: "FilmUltra",
   description: "Professional photo asset management for photographers and image-heavy teams.",
+  icons: {
+    icon: "/filmultra-mark.png",
+    apple: "/filmultra-mark.png",
+  },
 };
 
 export default function RootLayout({
@@ -33,8 +38,16 @@ export default function RootLayout({
       <body className={`${plexSans.variable} ${spaceGrotesk.variable}`}>
         <header className="site-header">
           <div className="site-header-inner">
-            <Link href="/" className="brand-mark">
-              FilmUltra
+            <Link href="/" className="brand-mark" aria-label="FilmUltra home">
+              <Image
+                src="/filmultra-wordmark.png"
+                alt="FilmUltra"
+                width={1064}
+                height={425}
+                priority
+                className="brand-mark-image"
+              />
+              <span className="brand-mark-fallback">FilmUltra</span>
             </Link>
             <nav className="site-nav">
               <Link href="/">图库</Link>

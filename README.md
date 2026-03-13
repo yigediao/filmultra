@@ -1,18 +1,19 @@
+<p align="center">
+  <img src="docs/branding/filmultra-readme-banner.png" alt="FilmUltra" width="860" />
+</p>
+
 # FilmUltra
 
-FilmUltra is a local-first photo asset manager for photographers and image-heavy teams.
-It focuses on fast browsing, RAW + JPG pairing, metadata-aware workflows, face clustering,
-and experimental 3D reconstruction pipelines on top of a mounted photo library.
+[English](README.md) | [简体中文](README.zh-CN.md)
 
-## What it does
+FilmUltra is a local-first photo manager built for professional photographers who outgrew Synology Photos.
 
-- Scans a mounted photo library and merges RAW + JPG into a single logical asset
-- Generates fast previews for browsing and review
-- Supports ratings and metadata sync back to files or XMP sidecars
-- Groups detected faces into unnamed clusters and promotes them into named people
-- Provides review workflows for person assignment corrections
-- Includes experimental SAM2 / SAM 3D body and object reconstruction tooling
-- Keeps runtime outputs isolated under `var/` instead of polluting source directories
+## Why it exists
+
+- Fixes the RAW + JPG duplication problem in Synology Photos by pairing both files into one logical asset instead of showing them twice.
+- Makes ratings actually usable by turning them into a first-class review workflow instead of a dead-end filter.
+- Replaces Synology Photos face detection with a faster, more accurate pipeline that supports correction and iterative learning.
+- Adds experimental SAM3D single-frame human and object reconstruction, making it easy to continue into 3D printing workflows.
 
 ## Stack
 
@@ -114,8 +115,6 @@ The public repository does **not** include:
 - smoke-test logs and temporary run outputs
 - large checkpoints and model weights
 - local mount session state and machine-specific helper outputs
-
-These are ignored through `.gitignore` and expected to live outside source control.
 
 ## Synology / NAS workflow
 
